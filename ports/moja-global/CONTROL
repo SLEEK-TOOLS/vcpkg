@@ -1,0 +1,4 @@
+Source: moja-global
+Version: 1.0.5
+Build-Depends: boost-log, boost-program-options, boost-ublas, libpq, sqlite3, eigen3, poco, turtle, zipper
+Description: The Full Lands Integration Tool (FLINT)
