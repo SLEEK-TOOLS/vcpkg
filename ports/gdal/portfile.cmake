@@ -104,6 +104,18 @@ if (NOT VCPKG_CMAKE_SYSTEM_NAME OR VCPKG_CMAKE_SYSTEM_NAME STREQUAL "WindowsStor
   file(TO_NATIVE_PATH "${CURRENT_INSTALLED_DIR}/lib/expat.lib" EXPAT_LIBRARY_REL)
   file(TO_NATIVE_PATH "${CURRENT_INSTALLED_DIR}/debug/lib/expat.lib" EXPAT_LIBRARY_DBG)
   
+  # Setup crypto libraries + include path
+  file(TO_NATIVE_PATH "${CURRENT_INSTALLED_DIR}/include" CRYPTOPP_INCLUDE_DIR)
+  file(TO_NATIVE_PATH "${CURRENT_INSTALLED_DIR}/lib/cryptopp-static.lib" CRYPTOPP_LIBRARY_REL)
+  file(TO_NATIVE_PATH "${CURRENT_INSTALLED_DIR}/debug/lib/cryptopp-static.lib" CRYPTOPP_LIBRARY_DBG)
+
+  # Setup openssl libraries + include path
+  file(TO_NATIVE_PATH "${CURRENT_INSTALLED_DIR}/include" OPENSSL_INCLUDE_DIR)
+  file(TO_NATIVE_PATH "${CURRENT_INSTALLED_DIR}/lib/ssleay32.lib" OPENSSL_LIBRARY_REL)
+  file(TO_NATIVE_PATH "${CURRENT_INSTALLED_DIR}/lib/libeay32.lib" LIBEAY_LIBRARY_REL)
+  file(TO_NATIVE_PATH "${CURRENT_INSTALLED_DIR}/debug/lib/ssleay32.lib" OPENSSL_LIBRARY_DBG)
+  file(TO_NATIVE_PATH "${CURRENT_INSTALLED_DIR}/debug/lib/libeay32.lib" LIBEAY_LIBRARY_DBG)
+  
   # Setup curl libraries + include path
   file(TO_NATIVE_PATH "${CURRENT_INSTALLED_DIR}/include" CURL_INCLUDE_DIR)
   if(EXISTS "${CURRENT_INSTALLED_DIR}/lib/libcurl.lib")
