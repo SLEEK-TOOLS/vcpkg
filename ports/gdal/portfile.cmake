@@ -377,14 +377,14 @@ elseif (VCPKG_CMAKE_SYSTEM_NAME STREQUAL "Linux" OR VCPKG_CMAKE_SYSTEM_NAME STRE
 
     message(STATUS "Building ${TARGET_TRIPLET}-rel")
     vcpkg_execute_required_process(
-      COMMAND make
+      COMMAND make -j ${VCPKG_CONCURRENCY}
       WORKING_DIRECTORY ${SOURCE_PATH_RELEASE}
       LOGNAME make-build-${TARGET_TRIPLET}-release
     )
 
     message(STATUS "Installing ${TARGET_TRIPLET}-rel")
     vcpkg_execute_required_process(
-      COMMAND make install
+      COMMAND make -j install
       WORKING_DIRECTORY ${SOURCE_PATH_RELEASE}
       LOGNAME make-install-${TARGET_TRIPLET}-release
     )
@@ -413,7 +413,7 @@ elseif (VCPKG_CMAKE_SYSTEM_NAME STREQUAL "Linux" OR VCPKG_CMAKE_SYSTEM_NAME STRE
 
     message(STATUS "Building ${TARGET_TRIPLET}-dbg")
     vcpkg_execute_required_process(
-      COMMAND make
+      COMMAND make -j ${VCPKG_CONCURRENCY}
       WORKING_DIRECTORY ${SOURCE_PATH_DEBUG}
       LOGNAME make-build-${TARGET_TRIPLET}-debug
     )
