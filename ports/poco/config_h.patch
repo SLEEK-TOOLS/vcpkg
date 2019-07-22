@@ -1,0 +1,16 @@
+diff --git a/Foundation/include/Poco/Config.h b/Foundation/include/Poco/Config.h
+index 7dbe01823..7f8e392d5 100644
+--- a/Foundation/include/Poco/Config.h
++++ b/Foundation/include/Poco/Config.h
+@@ -29,8 +29,9 @@
+ 
+ 
+ // Define to disable implicit linking
+-// #define POCO_NO_AUTOMATIC_LIBS
+-
++#ifndef POCO_NO_AUTOMATIC_LIBS
++#define POCO_NO_AUTOMATIC_LIBS
++#endif
+ 
+ // Define to disable automatic initialization
+ // Defining this will disable ALL automatic
