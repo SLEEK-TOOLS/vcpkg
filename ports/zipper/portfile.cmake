@@ -15,8 +15,10 @@ include(vcpkg_common_functions)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH 
     REPO sebastiandev/zipper
-    REF v1.0.1
-    SHA512 4aa9a837ea49bf229fd2fd422353acf403afb106e3270a7b53b22c045dfb0ac5fd3b56b105ae43f725f3d8338d64f6d70467ba08f6fbe222590bd1886c4b6f2a
+    REF 3b0ca4e18caa04d61434c23716d410e581ffd1b5
+    SHA512 8242fc4d367d1fd17c4df74bbfe82b0b9c4cbfce04189e3da64cc1e0acc87296651de9638a17e7c0974edb06c29748159f59906f2ff3dbeb1c7c3486623b8986
+    PATCHES
+        debug_postfix.patch
 )
 
 vcpkg_download_distfile(MINIZIP_ARCHIVE
@@ -47,6 +49,7 @@ vcpkg_configure_cmake(
 )
 
 vcpkg_install_cmake()
+vcpkg_fixup_cmake_targets(CONFIG_PATH lib/cmake)
 vcpkg_copy_pdbs()
 
 file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/include)

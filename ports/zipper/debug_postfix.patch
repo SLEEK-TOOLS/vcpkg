@@ -1,0 +1,17 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0f6accd..0d65b12 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -100,6 +100,12 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "")
+ or CMAKE_C_FLAGS are used), Debug, Release, RelWithDebInfo, MinSizeRel." FORCE)
+ endif()
+
++IF(CMAKE_BUILD_TYPE MATCHES RELEASE)
++ELSE()
++       IF(NOT CMAKE_DEBUG_POSTFIX)
++               SET(CMAKE_DEBUG_POSTFIX d)
++       ENDIF()
++ENDIF()
+
+ find_library(LIBZ_LIBRARY
+     NAMES zdll.lib z zlib.lib
